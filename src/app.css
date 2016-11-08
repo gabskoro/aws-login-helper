@@ -1,0 +1,36 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+}
+
+.container {
+  background-color: #F2F2F2;
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+}
+
+.form .form__input {
+  height: 30px;
+  outline: none;
+  border: 1px solid #E0DEDE;
+  padding: 5px;
+  width: 165px;
+}
+
+.form .form__button {
+  padding: 7px 15px;
+  border: none;
+  background-color: #D8262C;
+  color: #FFFFFF;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s background-color;
+}
+
+.form .form__button:hover {
+  background-color: #BD0101;
+}

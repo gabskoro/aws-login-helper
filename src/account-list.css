@@ -1,0 +1,27 @@
+.account-list {
+  margin-top: 20px;
+}
+
+.account-list__title {
+  font-size: 15px;
+  font-weight: normal;
+  color: #5D5D5D;
+}
+
+.account-list-items {
+  margin: 0;
+  padding: 0;
+}
+
+.account-list-items__link {
+  display: block;
+  text-decoration: none;
+  color: #5D5D5D;
+  padding: 5px 10px;
+  border-bottom: 1px solid #E0DEDE;
+  transition: 0.2s border-bottom-color;
+}
+
+.account-list-items__link:hover {
+  border-bottom-color: #5D5D5D;
+}
