@@ -8,7 +8,6 @@ export default class AccountList extends Component {
 
   render() {
     const {accounts} = this.props;
-    console.log('hellp', accounts);
     return (
       <div className='account-list'>
         <h1 className='account-list__title'>Accounts</h1>

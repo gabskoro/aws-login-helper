@@ -6,7 +6,9 @@ export function getAll() {
 
 function __getByKey(key) {
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.get(key, (acc) => resolve(acc[key]));
+    chrome.storage.sync.get(key, (acc) => {
+      resolve(acc[key] || []);
+    });
   });
 }
 
