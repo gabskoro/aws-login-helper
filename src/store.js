@@ -1,26 +1,22 @@
-import {getAll, save as chromeSave} from './storage';
+import {getAll, save as saveSync} from './storage';
 
 class Store {
   constructor() {
-    this.accounts = [];
+    this.__accounts = [];
   }
 
   load() {
-    // this can be async/await
-    return getAll().then((data) => {
-      this.accounts = data;
-    });
+    return getAll().then((data) => this.__accounts = data);
+  }
+
+  get accounts() {
+    return this.__accounts;
   }
 
   save(account) {
     // save to chrome (and to internal accounts!)
-    // this can be async/await
-    chromeSave(account);
-    if (this.accounts.length > 0) {
-      this.accounts = [account, ...this.accounts];
-    } else {
-      this.accounts = [account];
-    }
+    saveSync(account);
+    this.__accounts = [account, ...this.__accounts];
   }
 
   remove(account) {
