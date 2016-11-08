@@ -18,15 +18,8 @@ class App extends Component {
 
     this.setState({accounts: []});
 
-    // this can be async/await
-    storeLoader.then(() => {
-      this.setState({accounts: store.accounts || []});
-    });
-
-    window.d = {
-      chrome,
-      state: this.state
-    };
+    storeLoader
+      .then(() => this.setState({accounts: store.accounts}));
   }
 
   saveAccount() {
@@ -39,22 +32,32 @@ class App extends Component {
         link: `https://${companyName}.signin.aws.amazon.com/console`,
       });
 
-      this.setState({accounts: store.accounts});
+      this.setState({
+        accounts: store.accounts,
+        companyName: ''
+      });
     }
   }
 
   handleFormInput({target: {value}}) {
-    this.setState({copmanyName: value});
+    this.setState({companyName: value});
   }
 
   render() {
-    const {accounts} = this.state;
+    const {accounts, companyName} = this.state;
 
     return (
       <div className="container">
         <div className="from">
-          <input className="form__input" type="text" onChange={this.handleFormInput} />
-          <button className="form__button" onClick={this.saveAccount}>Add</button>
+          <input
+            className="form__input"
+            type="text"
+            onChange={this.handleFormInput}
+            value={companyName} />
+
+          <button className="form__button" onClick={this.saveAccount}>
+            Add
+          </button>
         </div>
         <AccountList accounts={accounts} />
       </div>
